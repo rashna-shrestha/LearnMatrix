@@ -7,6 +7,7 @@ dotenv.config()
 import cors from "cors"
 import userRouter from './route/userRoute.js'
 
+
 const port = process.env.PORT
 const app = express()
 app.use(express.json())
@@ -15,11 +16,15 @@ app.use(cors({
 origin: [
     "http://localhost:5173",
     "http://localhost:5174",
-    "http://localhost:5175"
+    "http://localhost:5175",
+     "http://localhost:3000"
   ],
 
 credentials:true
 }))
+
+
+
 
 app.use("/api/auth",authRouter)
 app.use("/api/user",userRouter)
